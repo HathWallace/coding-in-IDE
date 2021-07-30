@@ -11,9 +11,9 @@ namespace ConsoleApplication
             {
             }
         }
+    }
 
-        class Solution
-        {
-        }
+    class Solution
+    {
     }
 }
