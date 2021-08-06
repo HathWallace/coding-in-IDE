@@ -18,18 +18,16 @@ class SolutionTest {
         LeetCodeIO io = new LeetCodeIO();
 
         while (true) {
-            Object[] params = new Object[paramCount];
-            for (int i = 0; i < paramCount; i++) {
-                params[i] = io.input(parameterTypes[i]);
-            }
             try {
+                Object[] params = new Object[paramCount];
+                for (int i = 0; i < paramCount; i++) {
+                    params[i] = io.input(parameterTypes[i]);
+                }
                 Object res = solutionMethod.invoke(solution, params);
                 io.output(res);
             } catch (Exception e) {
                 e.printStackTrace();
-                continue;
             }
-
         }
     }
 

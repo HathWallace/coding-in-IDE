@@ -21,8 +21,7 @@ public class OutputFactory {
             return jsonArray.toString();
         }
 
-        JSONObject jsonObject = JSONObject.fromObject(obj);
-        return jsonObject.toString();
+        return obj.toString();
     }
 
     private Object getArrayFromList(ListNode head) {

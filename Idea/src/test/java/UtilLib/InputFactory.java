@@ -11,6 +11,15 @@ public class InputFactory {
         if (int.class.equals(parameterType) || Integer.class.equals(parameterType)) {
             return Integer.parseInt(line);
         }
+        if (int[].class.equals(parameterType)) {
+            Collection<?> valCollection = getJsonCollection(line);
+            int[] nums = new int[valCollection.size()];
+            int index = 0;
+            for (Object val : valCollection) {
+                nums[index++] = (int) val;
+            }
+            return nums;
+        }
         if (ListNode.class.equals(parameterType)) {
             Collection<?> valCollection = getJsonCollection(line);
             ListNode head = new ListNode(), pt = head;
