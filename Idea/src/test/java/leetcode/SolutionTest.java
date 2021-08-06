@@ -1,9 +1,7 @@
 package leetcode;
 
 import UtilLib.LeetCodeIO;
-import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 class SolutionTest {
@@ -35,9 +33,16 @@ class SolutionTest {
         try {
             Class<?> aClass = Class.forName("leetcode.Solution");
             Method[] methods = aClass.getDeclaredMethods();
-            if (methods.length != 1)
-                throw new Exception("必须有且仅有一个公共方法！");
-            return methods[0];
+            Method solutionMethod = null;
+            for (Method method : methods) {
+                int modifiers = method.getModifiers();
+                if ((modifiers & 1) == 1) {
+                    if (solutionMethod != null)
+                        throw new Exception("必须有且仅有一个公共方法！");
+                    solutionMethod = method;
+                }
+            }
+            return solutionMethod;
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);
