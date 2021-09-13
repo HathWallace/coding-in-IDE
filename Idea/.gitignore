@@ -31,3 +31,5 @@ hs_err_pid*
 *.iml
 out
 gen
+
+!/lib/java-code-debug-1.0-SNAPSHOT.jar
